@@ -1,9 +1,14 @@
+import { Route, Routes } from 'react-router'
 import './App.css'
+import AuthPage from './pages/Auth/AuthPage'
 
 function App() {
   return (
     <>
-      Auth System
+      <Routes>
+        {/* Auth Routes - Public */}
+        <Route path='/' element={<AuthPage />} />
+      </Routes>
     </>
   )
 }
