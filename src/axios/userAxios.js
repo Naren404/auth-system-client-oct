@@ -60,3 +60,18 @@ export const getAccessToKen = () => {
 
   return response
 }
+
+// Logout user
+export const logoutUser = () => {
+  const response = axios.post(USER_API_URL + "/logout", 
+                    {},
+                    {
+                      headers: {
+                        Authorization: sessionStorage.getItem("accessJWT")
+                      }
+                    })
+                    .then(res => res.data)
+                    .catch(error => { throw error })
+                
+  return response
+}
