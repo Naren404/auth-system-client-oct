@@ -53,8 +53,12 @@ const LoginForm = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if(user?._id){
+    if(user?._id && user?.role === "student"){
       navigate("/books")
+    }
+
+    if(user?._id && user?.role === "admin"){
+      navigate("/admin/dashboard")
     }
 
     if(!user?._id){
