@@ -15,6 +15,15 @@ export const getBooks = () => {
   return response
 }
 
+// GET A BOOK | PUBLIC ROUTE
+export const getBook = (_id) => {
+  const response = axios.get(`${BOOKS_API_URL}/${_id}`)
+                      .then(res => res.data)
+                      .catch(error => { throw error})
+
+  return response
+}
+
 // CREATE BOOK | PRIVATE | ADMIN ONLY ROUTE
 export const createBook = (bookObj) => {
   const response = axios.post(BOOKS_API_URL, bookObj, getAuthHeader())
@@ -26,6 +35,14 @@ export const createBook = (bookObj) => {
 
 export const updateBook = (bookObj) => {
   const response = axios.patch(BOOKS_API_URL, bookObj, getAuthHeader())
+                      .then(res => res.data)
+                      .catch(error => { throw error})
+
+  return response
+}
+
+export const createBookImages = (bookObj) => {
+  const response = axios.patch(`${BOOKS_API_URL}/bookImages`, bookObj, getAuthHeader())
                       .then(res => res.data)
                       .catch(error => { throw error})
 

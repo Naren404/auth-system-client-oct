@@ -14,7 +14,7 @@ const Header = () => {
 
   return ( 
     <Navbar expand="lg" className="bg-info-subtle px-4 align-items-center">
-      <Link to="/books" className="fw-bold text-dark text-decoration-none"><Navbar.Brand>Auth System</Navbar.Brand></Link>
+      <Link to="/students/books" className="fw-bold text-dark text-decoration-none"><Navbar.Brand>LMS</Navbar.Brand></Link>
 
       <Navbar.Toggle />
 

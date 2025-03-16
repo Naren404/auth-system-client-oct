@@ -4,6 +4,7 @@ import { BsPencil, BsTrash } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { getBooksAction } from "../redux/book/bookActions";
 import UploadBookThumbnail from "./UploadBookThumbnailModal";
+import UploadBookImagesModal from "./UploadBookImagesModal";
 
 const BookTable = (props) => {
   const { setShowCreateOrUpdateBookModal, setSelectedBook, selectedBook } = props
@@ -29,6 +30,14 @@ const BookTable = (props) => {
 
   const handleOnUpdateThumbnail = (book) => {
     setShowUploadThumbnailModal(true)
+    setSelectedBook(book)
+  }
+
+  // State to control uplaod book modal
+  const [showUplaodBookImagesModal, setShowUploadBookImagesModal] = useState(false)
+
+  const handleOnUplaodBookImages = (book) => {
+    setShowUploadBookImagesModal(true)
     setSelectedBook(book)
   }
 
@@ -64,7 +73,7 @@ const BookTable = (props) => {
                       Update Thumbnail
                     </Button>
                   <Button
-                    onClick={''}
+                    onClick={() => handleOnUplaodBookImages(book)}
                   >
                     Add Images
                   </Button>
@@ -96,6 +105,12 @@ const BookTable = (props) => {
       <UploadBookThumbnail 
         showModal={showUplaodThumbnailModal}
         setShowModal={setShowUploadThumbnailModal}
+        selectedBookId={selectedBook?._id}
+      />
+
+      <UploadBookImagesModal
+        showModal={showUplaodBookImagesModal}
+        setShowModal={setShowUploadBookImagesModal}
         selectedBookId={selectedBook?._id}
       />
     </>

@@ -4,11 +4,12 @@ import AuthPage from './pages/Auth/AuthPage'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import VerifyUserPage from './pages/Auth/VerifyUserPage';
-import BooksPage from './pages/Student/BooksPage';
-import StudentPrivateRoute from './components/PrivateStudentRoute';
 import AdminPrivateRoute from './components/AdminPrivateRoute';
 import AdminLayout from './layouts/Adminlayout';
 import AdminBooksPage from './pages/Admin/AdminBooksPage';
+import StudentLayout from './components/StudentLayout';
+import StudentsBooksPage from './pages/Student/StudentBooksPage';
+import BookDetailsPage from './pages/Student/BookDetailsPage';
 
 function App() {
   return (
@@ -27,7 +28,10 @@ function App() {
           <Route path='students' element={<h1>Students Page</h1>} />
         </Route>
         {/* Private Route - Student Route */}
-        <Route path='/books' element={<StudentPrivateRoute><BooksPage /></StudentPrivateRoute>} />
+        <Route path='/students' element={<StudentLayout />}>
+          <Route path='books' element={<StudentsBooksPage />} />
+          <Route path='book/:_id' element={<BookDetailsPage />} />
+        </Route>
       </Routes>
 
       <ToastContainer />

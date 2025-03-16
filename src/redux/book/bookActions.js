@@ -1,6 +1,17 @@
 import { toast } from "react-toastify"
-import { setBooks } from "./bookSlice"
-import { createBook, getBooks, updateBook } from "../../axios/booksAxios"
+import { setBook, setBooks } from "./bookSlice"
+import { createBook, createBookImages, getBook, getBooks, updateBook } from "../../axios/booksAxios"
+
+// get all books
+export const getBookAction = (_id) => async(dispatch) => {
+  const result = await getBook(_id)
+
+  if(result?.status === "error"){
+    return toast.error(result.message)
+  }
+
+  dispatch(setBook(result.data))
+}
 
 // get all books
 export const getBooksAction = () => async(dispatch) => {
@@ -38,3 +49,15 @@ export const updateBookAction = (bookObj) => async(dispatch) => {
 
   dispatch(getBooksAction())
 }
+
+// // CREATE BOOK IMAGES
+export const createBookImagesAction = (bookObj) => async(dispatch) => {
+    const result = await createBookImages(bookObj)
+  
+    if(result?.status === "error"){
+      return toast.error(result.message)
+    }
+  
+    toast.success(result.message)
+    dispatch(getBooksAction())
+  }

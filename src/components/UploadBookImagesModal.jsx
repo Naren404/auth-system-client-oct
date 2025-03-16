@@ -1,7 +1,7 @@
 import { Offcanvas } from "react-bootstrap";
 import UploadBookImagesForm from "./UploadBookImagesForm";
 
-const UploadBookThumbnail = (props) => {
+const UploadBookImagesModal = (props) => {
   const { showModal, setShowModal, selectedBookId } = props
 
   return ( 
@@ -12,7 +12,7 @@ const UploadBookThumbnail = (props) => {
       backdrop="static"
     >
       <Offcanvas.Header closeButton>
-        <Offcanvas.Title>Update Thumbnail</Offcanvas.Title>
+        <Offcanvas.Title>Upload Book Images</Offcanvas.Title>
       </Offcanvas.Header>
 
       <Offcanvas.Body>
@@ -23,4 +23,4 @@ const UploadBookThumbnail = (props) => {
    );
 }
  
-export default UploadBookThumbnail;
+export default UploadBookImagesModal;
