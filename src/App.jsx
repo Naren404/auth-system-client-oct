@@ -10,6 +10,8 @@ import AdminBooksPage from './pages/Admin/AdminBooksPage';
 import StudentLayout from './components/StudentLayout';
 import StudentsBooksPage from './pages/Student/StudentBooksPage';
 import BookDetailsPage from './pages/Student/BookDetailsPage';
+import StudentBorrowPage from './pages/Student/StudentBorrowHistory';
+import StudentPrivateRoute from './components/StudentPrivateRoute';
 
 function App() {
   return (
@@ -27,10 +29,12 @@ function App() {
           <Route path='reviews' element={<h1>Reviews Page</h1>} />
           <Route path='students' element={<h1>Students Page</h1>} />
         </Route>
-        {/* Private Route - Student Route */}
+        {/* Public Route - Student Route */}
         <Route path='/students' element={<StudentLayout />}>
           <Route path='books' element={<StudentsBooksPage />} />
           <Route path='book/:_id' element={<BookDetailsPage />} />
+
+          <Route path='borrowHistory' element={<StudentPrivateRoute><StudentBorrowPage /></StudentPrivateRoute>} />
         </Route>
       </Routes>
 
