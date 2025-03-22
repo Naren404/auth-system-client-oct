@@ -21,7 +21,6 @@ phases:
 artifacts:
   files:
     - dist/**/* # This assumes your Vite build output is in the "dist" folder
-  discard-paths: yes # Ensures that only the content of the dist folder is uploaded
 
 cache:
   paths:
