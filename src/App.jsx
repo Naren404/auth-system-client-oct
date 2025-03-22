@@ -5,13 +5,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import VerifyUserPage from './pages/Auth/VerifyUserPage';
 import AdminPrivateRoute from './components/AdminPrivateRoute';
-import AdminLayout from './layouts/Adminlayout';
 import AdminBooksPage from './pages/Admin/AdminBooksPage';
 import StudentLayout from './components/StudentLayout';
 import StudentsBooksPage from './pages/Student/StudentBooksPage';
 import BookDetailsPage from './pages/Student/BookDetailsPage';
 import StudentBorrowPage from './pages/Student/StudentBorrowHistory';
 import StudentPrivateRoute from './components/StudentPrivateRoute';
+import AdminLayout from './layouts/AdminLayout';
 
 function App() {
   return (
